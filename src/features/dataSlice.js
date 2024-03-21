@@ -32,6 +32,7 @@ export const { setData, clearData, incrementId, decrementId, inputId } = dataSli
 export const fetchData = () => {
     const fetchDataThunk = async (dispatch, getState) => {
         let state = getState()
+        console.log(state)
         const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${state.data.objectId}`)
         const rData = await response.json()
         dispatch(setData(rData))
